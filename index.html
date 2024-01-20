@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Location</title>
     <style>
-        body{
-            background-image: linear-gradient(rgb(134, 103, 103), rgb(100, 100, 74), rgb(72, 98, 72));
-        }
+      body {
+        background-image: linear-gradient(
+          rgb(134, 103, 103),
+          rgb(100, 100, 74),
+          rgb(72, 98, 72)
+        );
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container h-screen flex items-center justify-center">
-    <div class="main">
+      <div class="main">
         <div class="butwrap">
-
-            <button id="but" class="text-white rounded-full mb-5 bg-red-500 p-5 hover:text-black hover:bg-red-100 text-black">Show Location</button>
+          <button
+            id="but"
+            class="text-white rounded-full mb-5 bg-red-500 p-5 hover:text-black hover:bg-red-100 text-black"
+          >
+            Show Location
+          </button>
         </div>
-            <p id="longi" class="text-white">User Location Details: </p>
-            <p class="text-white">User Address: </p>
-            <p class="text-white">User Address: </p>
-        </div>
+        <p id="longi" class="text-white">User Location Details:</p>
+        <p id="remadd" class="text-white">Address:</p>
+        <p id="fulladd" class="text-white">Full Address:</p>
+      </div>
     </div>
 
 
-    <script>
-        const longi = document.querySelector("#longi")
-        document.querySelector('#but').addEventListener('click', ()=>{
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition((position)=>{
-                    console.log(position)
-                    const {latitude, longitude} = position.coords
-                    longi.textContent=`Latitude: ${latitude} & Longitude: ${longitude}`
-                },(error)=>{
-                    longi.textContent=error.message
-                } )
-            }
-        })
-    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="index.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-</body>
+
+  </body>
 </html>
